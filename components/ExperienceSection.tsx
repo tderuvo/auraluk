@@ -87,6 +87,13 @@ const experiences: Experience[] = [
     title: 'The Aurora\nProtocol',
     copy: 'When geomagnetic conditions favor the northern lights, AURALUK activates the Aurora Protocol — a dedicated vigil from the ridge deck with expert guidance, thermal blankets, and complete silence. Some nights, the sky performs.',
     gradient: 'linear-gradient(135deg, #051e18 0%, #082e24 40%, #061e18 70%, #041410 100%)',
+    // ── Image asset ──────────────────────────────────────────────────────
+    // Drop the file at: public/images/the_aurora_protocol.png
+    imageSrc: '/images/the_aurora_protocol.png',
+    imageAlt: 'Guests watching the northern lights during the Aurora Protocol experience at Auraluk',
+    // Slight upward bias keeps the aurora and night sky prominent
+    // while guests and ridge deck stay anchored in the lower frame
+    imagePosition: 'center 40%',
   },
 ]
 
