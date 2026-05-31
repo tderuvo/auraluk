@@ -18,6 +18,8 @@ interface Experience {
   imageAlt?: string
   /** CSS object-position for fine-tuning crop — defaults to 'center' */
   imagePosition?: string
+  /** 'cover' fills the container; 'contain' shows the full image uncropped */
+  imageObjectFit?: 'cover' | 'contain'
 }
 
 const experiences: Experience[] = [
@@ -72,6 +74,13 @@ const experiences: Experience[] = [
     title: "Saturn's Rings\nUp Close",
     copy: "Our primary 16-inch Dobsonian — The Meridian — resolves Saturn's rings into distinct bands of ice and stone. Guests describe it as a moment of permanent change. You will never see an ordinary sky the same way again.",
     gradient: 'linear-gradient(135deg, #0c0a2e 0%, #181240 40%, #100c2e 70%, #080818 100%)',
+    // ── Image asset ──────────────────────────────────────────────────────
+    // Drop the file at: public/images/saturn.png
+    imageSrc: '/images/saturn.png',
+    imageAlt: 'High-resolution view of Saturn and its rings through the Meridian telescope at Auraluk',
+    imagePosition: 'center center',
+    // contain keeps the full planet and ring system visible — never cropped
+    imageObjectFit: 'contain',
   },
   {
     id: '06',
@@ -142,6 +151,7 @@ function ExperienceBlock({ exp, index }: ExperienceBlockProps) {
             fallbackGradient={exp.gradient}
             sizes="(max-width: 1024px) 100vw, 50vw"
             objectPosition={exp.imagePosition}
+            objectFit={exp.imageObjectFit}
           />
         ) : (
           /* ── Gradient fallback path ──────────────────────────────── */

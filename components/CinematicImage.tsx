@@ -26,6 +26,12 @@ export interface CinematicImageProps {
   sizes?: string
   /** CSS object-position — control which part of the image stays in frame */
   objectPosition?: string
+  /**
+   * 'cover'   — fills the container, may crop edges (default, cinematic)
+   * 'contain' — shows the full image with no cropping (use for subjects
+   *             that must never be cut, e.g. Saturn's rings)
+   */
+  objectFit?: 'cover' | 'contain'
 }
 
 export default function CinematicImage({
@@ -35,6 +41,7 @@ export default function CinematicImage({
   priority = false,
   sizes = '100vw',
   objectPosition = 'center',
+  objectFit = 'cover',
 }: CinematicImageProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [hasError, setHasError] = useState(false)
@@ -73,7 +80,7 @@ export default function CinematicImage({
           priority={priority}
           sizes={sizes}
           className={[
-            'object-cover',
+            objectFit === 'contain' ? 'object-contain' : 'object-cover',
             'transition-all duration-700 ease-out',
             /* hover effects — requires `group` on the parent container */
             'group-hover:scale-[1.04] group-hover:brightness-[1.06]',
