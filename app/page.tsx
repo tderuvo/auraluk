@@ -3,6 +3,8 @@ import HeroSection from '@/components/HeroSection'
 import ExperienceSection from '@/components/ExperienceSection'
 import ObservatorySection from '@/components/ObservatorySection'
 import RetreatSection from '@/components/RetreatSection'
+import ThermalSanctuarySection from '@/components/ThermalSanctuarySection'
+import SilenceSection from '@/components/SilenceSection'
 import CosmosNightsSection from '@/components/CosmosNightsSection'
 import GallerySection from '@/components/GallerySection'
 import CTASection from '@/components/CTASection'
@@ -18,6 +20,8 @@ export default function Home() {
       <ExperienceSection />
       <ObservatorySection />
       <RetreatSection />
+      <ThermalSanctuarySection />
+      <SilenceSection />
       <CosmosNightsSection />
       <GallerySection />
       <CTASection />

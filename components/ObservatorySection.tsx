@@ -89,13 +89,21 @@ export default function ObservatorySection() {
           transition={{ duration: 1.5, ease }}
           className="mb-18"
         >
-          <span className="section-label block mb-5">Instruments of Wonder</span>
+          <span className="section-label block mb-5">The Practice of Looking</span>
           <h2
             className="font-serif font-light text-ghost"
             style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', letterSpacing: '0.04em' }}
           >
             The Observatory
           </h2>
+          <p
+            className="font-sans text-silver-dim mt-6 max-w-xl"
+            style={{ lineHeight: '1.85', fontSize: 'clamp(0.85rem, 1.4vw, 1rem)' }}
+          >
+            Each instrument was chosen not for spectacle, but for the quality of
+            stillness it creates. The act of looking through an eyepiece — unhurried,
+            in the cold, in the dark — is itself the ritual.
+          </p>
         </motion.div>
 
         {/* ── Observatory dome hero image ─────────────────────────────── */}
