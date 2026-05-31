@@ -1,8 +1,12 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import StarfieldCanvas from './StarfieldCanvas'
 
 const ease = [0.16, 1, 0.3, 1] as const
+
+// ── Mountain silhouette SVG ────────────────────────────────────────────────
+// Unchanged from original — blends the hero into the next section.
 
 function MountainSilhouette() {
   return (
@@ -40,23 +44,71 @@ function MountainSilhouette() {
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-void">
-      {/* Starfield */}
-      <StarfieldCanvas />
 
-      {/* Aurora gradients */}
-      <div className="absolute inset-0 aurora-layer pointer-events-none" />
+      {/* ── 1. Chalet hero image ─────────────────────────────────────────
+           The emotional centerpiece of the brand. Chalet, observatory
+           dome, glass corridor, and forest surroundings.
+           objectPosition biases upward slightly to keep the roofline
+           and dome in frame across all viewport heights.
+           Adjust 'center 30%' here if the crop needs fine-tuning.    */}
+      <Image
+        src="/images/chalet.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        style={{ objectPosition: 'center 30%' }}
+        aria-hidden="true"
+      />
 
-      {/* Radial vignette */}
+      {/* ── 2. Warm dark overlay ─────────────────────────────────────────
+           Slightly warm-tinted blacks (4,3,8) rather than cold void.
+           Heavy at top (nav readability) and bottom (content/blend),
+           lighter in the middle to let the chalet glow through.      */}
       <div
+        aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(3,5,8,0.7) 100%)',
+          background: [
+            'linear-gradient(',
+            '  to bottom,',
+            '  rgba(4,3,8,0.78) 0%,',
+            '  rgba(4,3,8,0.32) 28%,',
+            '  rgba(4,3,8,0.40) 58%,',
+            '  rgba(3,4,8,0.94) 100%',
+            ')',
+          ].join(''),
         }}
       />
 
-      {/* Fog layer bottom */}
+      {/* ── 3. Starfield — quieter over real photography ─────────────────
+           Opacity reduced so stars read as atmospheric rather than
+           as the dominant visual element.                             */}
+      <div aria-hidden="true" className="absolute inset-0 opacity-45 pointer-events-none">
+        <StarfieldCanvas />
+      </div>
+
+      {/* ── 4. Aurora gradients — restrained ─────────────────────────────
+           Present as a colour atmosphere, not a feature. opacity-35
+           ensures the teal/violet tints whisper rather than glow.    */}
+      <div aria-hidden="true" className="absolute inset-0 aurora-layer opacity-35 pointer-events-none" />
+
+      {/* ── 5. Radial vignette — soft centre, dark edges ─────────────────
+           Opens slightly more than before (45% transparent zone)
+           so the chalet isn't darkened in the mid-frame.             */}
       <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 88% 78% at 50% 46%, transparent 45%, rgba(3,5,8,0.52) 100%)',
+        }}
+      />
+
+      {/* ── 6. Bottom fog — unchanged ────────────────────────────────── */}
+      <div
+        aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 h-2/5 pointer-events-none"
         style={{
           background:
@@ -65,21 +117,23 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 pt-28 pb-48">
-        {/* Eyebrow */}
+      {/* ── Content ──────────────────────────────────────────────────────
+           Additional vertical padding for breathing room.            */}
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-6 pt-40 pb-52">
+
+        {/* Eyebrow — silver lines instead of teal, more muted presence */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.8, ease }}
-          className="flex items-center justify-center gap-3 mb-8"
+          className="flex items-center justify-center gap-3 mb-10"
         >
-          <span className="block w-8 h-px bg-aurora/50" />
-          <span className="section-label opacity-80">Sutton, Québec · Est. MMXXIV</span>
-          <span className="block w-8 h-px bg-aurora/50" />
+          <span className="block w-8 h-px bg-silver/22" />
+          <span className="section-label opacity-55">Sutton, Québec · Est. MMXXIV</span>
+          <span className="block w-8 h-px bg-silver/22" />
         </motion.div>
 
-        {/* Main title */}
+        {/* Main title — typography unchanged */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,19 +148,19 @@ export default function HeroSection() {
           AURALUK
         </motion.h1>
 
-        {/* Decorative divider */}
+        {/* Divider — silver palette, centre dot without pulse animation */}
         <motion.div
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 1.4, delay: 1.5, ease }}
-          className="flex items-center justify-center gap-3 my-7"
+          className="flex items-center justify-center gap-3 my-9"
         >
-          <span className="block h-px bg-gradient-to-r from-transparent via-aurora/60 to-transparent w-48" />
-          <span className="block w-1.5 h-1.5 rounded-full bg-aurora animate-glow-pulse" />
-          <span className="block h-px bg-gradient-to-r from-transparent via-aurora/60 to-transparent w-48" />
+          <span className="block h-px bg-gradient-to-r from-transparent via-silver/22 to-transparent w-48" />
+          <span className="block w-1.5 h-1.5 rounded-full bg-silver/45" />
+          <span className="block h-px bg-gradient-to-r from-transparent via-silver/22 to-transparent w-48" />
         </motion.div>
 
-        {/* Subtitle */}
+        {/* Subtitle — unchanged */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,12 +171,12 @@ export default function HeroSection() {
           Where the Northern Sky Becomes an Experience.
         </motion.p>
 
-        {/* CTAs */}
+        {/* CTAs — same layout and text; pulse removed from secondary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 2.1, ease }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16"
         >
           <a
             href="#experience"
@@ -140,28 +194,28 @@ export default function HeroSection() {
               e.preventDefault()
               document.querySelector('#cosmos-nights')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="border border-aurora/35 bg-aurora/8 px-9 py-4 section-label text-aurora hover:bg-aurora/15 hover:border-aurora/65 transition-all duration-600 animate-glow-pulse w-full sm:w-auto text-center"
+            className="border border-aurora/28 bg-aurora/6 px-9 py-4 section-label text-aurora hover:bg-aurora/12 hover:border-aurora/55 transition-all duration-600 w-full sm:w-auto text-center"
           >
             Reserve a Night Beneath the Stars
           </a>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — silver instead of teal, more restrained */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2.8 }}
         className="absolute bottom-36 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
-        <span className="section-label opacity-50">Scroll</span>
+        <span className="section-label opacity-38">Scroll</span>
         <div
-          className="w-px h-10 bg-gradient-to-b from-aurora/60 to-transparent"
+          className="w-px h-10 bg-gradient-to-b from-silver/35 to-transparent"
           style={{ animation: 'scroll-hint 2.5s ease-in-out infinite' }}
         />
       </motion.div>
 
-      {/* Mountain silhouette */}
+      {/* ── 7. Mountain silhouette — unchanged ───────────────────────── */}
       <MountainSilhouette />
     </section>
   )
