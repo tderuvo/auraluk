@@ -63,7 +63,7 @@ export default function CTASection() {
       {/* Aurora gradients */}
       <div
         className="absolute inset-0 pointer-events-none aurora-layer"
-        style={{ opacity: 0.4 }}
+        style={{ opacity: 0.2 }}
       />
 
       {/* Vignette */}

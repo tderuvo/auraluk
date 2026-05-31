@@ -67,7 +67,7 @@ export default function ObservatorySection() {
       {/* Deep space gradient top */}
       <div
         className="absolute top-0 left-0 right-0 h-64 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, #030508 0%, transparent 100%)' }}
+        style={{ background: 'linear-gradient(to bottom, #0c0d0e 0%, transparent 100%)' }}
       />
 
       {/* Ambient aurora right */}
@@ -75,7 +75,7 @@ export default function ObservatorySection() {
         className="absolute top-1/4 right-0 w-1/2 h-1/2 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 70% 60% at 100% 50%, rgba(42,180,232,0.06) 0%, transparent 70%)',
+            'radial-gradient(ellipse 70% 60% at 100% 50%, rgba(42,180,232,0.02) 0%, transparent 70%)',
         }}
       />
 
@@ -131,7 +131,7 @@ export default function ObservatorySection() {
             ].join(' ')}
             style={{
               boxShadow:
-                '0 0 80px rgba(62,207,176,0.07), 0 28px 80px rgba(3,5,8,0.65)',
+                '0 16px 64px rgba(0,0,0,0.55)',
             }}
           >
             <CinematicImage {...DOME_IMAGE} />

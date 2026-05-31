@@ -54,7 +54,7 @@ export default function RetreatSection() {
       <div
         aria-hidden="true"
         className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, #070a1e 0%, rgba(236,233,226,0) 100%)' }}
+        style={{ background: 'linear-gradient(to bottom, #0e1018 0%, rgba(236,233,226,0) 100%)' }}
       />
 
       {/* ── Subtle warm luminance — diffused Nordic winter light ───────── */}

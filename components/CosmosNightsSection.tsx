@@ -142,7 +142,7 @@ export default function CosmosNightsSection() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 100% 60% at 50% 50%, rgba(13, 21, 53, 0.8) 0%, transparent 70%)',
+            'radial-gradient(ellipse 100% 60% at 50% 50%, rgba(14, 15, 18, 0.35) 0%, transparent 70%)',
         }}
       />
 

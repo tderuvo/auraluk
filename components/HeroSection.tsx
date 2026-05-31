@@ -73,9 +73,9 @@ export default function HeroSection() {
           background: [
             'linear-gradient(',
             '  to bottom,',
-            '  rgba(4,3,8,0.78) 0%,',
-            '  rgba(4,3,8,0.32) 28%,',
-            '  rgba(4,3,8,0.40) 58%,',
+            '  rgba(4,3,8,0.68) 0%,',
+            '  rgba(4,3,8,0.22) 28%,',
+            '  rgba(4,3,8,0.32) 58%,',
             '  rgba(3,4,8,0.94) 100%',
             ')',
           ].join(''),
@@ -85,14 +85,14 @@ export default function HeroSection() {
       {/* ── 3. Starfield — quieter over real photography ─────────────────
            Opacity reduced so stars read as atmospheric rather than
            as the dominant visual element.                             */}
-      <div aria-hidden="true" className="absolute inset-0 opacity-35 pointer-events-none">
+      <div aria-hidden="true" className="absolute inset-0 opacity-18 pointer-events-none">
         <StarfieldCanvas />
       </div>
 
-      {/* ── 4. Aurora gradients — restrained ─────────────────────────────
-           Present as a colour atmosphere, not a feature. opacity-35
-           ensures the teal/violet tints whisper rather than glow.    */}
-      <div aria-hidden="true" className="absolute inset-0 aurora-layer opacity-35 pointer-events-none" />
+      {/* ── 4. Aurora gradients — barely present ─────────────────────────
+           At opacity-12 the aurora reads as a faint colour temperature
+           shift rather than an animation. Photography leads.         */}
+      <div aria-hidden="true" className="absolute inset-0 aurora-layer opacity-12 pointer-events-none" />
 
       {/* ── 5. Radial vignette — soft centre, dark edges ─────────────────
            Opens slightly more than before (45% transparent zone)
