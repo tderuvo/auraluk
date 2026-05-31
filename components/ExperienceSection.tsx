@@ -48,6 +48,12 @@ const experiences: Experience[] = [
     title: 'Firelight\nGatherings',
     copy: 'Before the telescopes emerge, guests gather around an open fire in the forest clearing. Warm drinks, quiet conversation, and a soft introduction to the night sky above — the pause before the infinite opens.',
     gradient: 'linear-gradient(135deg, #200f02 0%, #341808 40%, #240c04 70%, #160802 100%)',
+    // ── Image asset ──────────────────────────────────────────────────────
+    // Drop the file at: public/images/firelight_gatherings.png
+    imageSrc: '/images/firelight_gatherings.png',
+    imageAlt: 'Guests gathered around a fire beneath the northern sky at Auraluk',
+    // Center keeps the fire, guests, dome, chalet, and sky all in frame
+    imagePosition: 'center center',
   },
   {
     id: '04',
