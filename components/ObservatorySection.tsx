@@ -104,6 +104,12 @@ export default function ObservatorySection() {
             stillness it creates. The act of looking through an eyepiece — unhurried,
             in the cold, in the dark — is itself the ritual.
           </p>
+          <a
+            href="/aurascope"
+            className="inline-flex items-center gap-2 mt-7 font-sans text-xs tracking-[0.2em] uppercase text-aurora hover:gap-4 transition-all duration-500"
+          >
+            Discover The AuraScope <span>→</span>
+          </a>
         </motion.div>
 
         {/* ── Observatory dome hero image ─────────────────────────────── */}

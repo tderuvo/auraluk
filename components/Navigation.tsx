@@ -14,7 +14,7 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [audioOn, setAudioOn] = useState(false)
-  const audioRef = useState<AudioContext | null>(null)
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -34,7 +34,12 @@ export default function Navigation() {
   const handleNav = (href: string) => {
     setMenuOpen(false)
     const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      // Not on the home page — navigate there and let the browser handle the hash
+      window.location.href = `/${href}`
+    }
   }
 
   return (
@@ -43,7 +48,7 @@ export default function Navigation() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ${
+        className={`fixed top-0 left-0 right-0 z-100 transition-all duration-700 ${
           scrolled
             ? 'glass border-b border-white/5 py-4'
             : 'bg-transparent py-6'
@@ -52,7 +57,7 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             className="font-serif font-light text-ghost text-xl tracking-[0.35em] uppercase hover:text-aurora transition-colors duration-500"
           >
             AURALUK
@@ -123,7 +128,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[99] bg-void/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-10"
+            className="fixed inset-0 z-99 bg-void/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-10"
           >
             {navLinks.map((link, i) => (
               <motion.button
@@ -133,7 +138,7 @@ export default function Navigation() {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleNav(link.href)}
-                className="font-serif font-light text-4xl text-silver hover:text-aurora transition-colors duration-400 tracking-[0.1em]"
+                className="font-serif font-light text-4xl text-silver hover:text-aurora transition-colors duration-400 tracking-widest"
               >
                 {link.label}
               </motion.button>
