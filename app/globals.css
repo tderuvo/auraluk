@@ -15,12 +15,19 @@
   --color-silver-dim: #7888a8;
   --color-ghost: #eef2f7;
 
-  /* ── Warm editorial palette ──────────────────────────────────────────────────── */
+  /* ── Warm editorial palette — light sections ─────────────────────────────────── */
   --color-warm-stone: #ece9e2;
   --color-warm-linen: #f5f3ee;
   --color-warm-text: #2c2822;
   --color-warm-text-dim: #6b6560;
   --color-warm-text-muted: #9e9893;
+
+  /* ── Light architectural palette — Scandinavian editorial ────────────────────── */
+  --color-linen: #f5f5f1;
+  --color-ash-light: #e8e5de;
+  --color-charcoal: #1c1c1a;
+  --color-charcoal-dim: #3a3836;
+  --color-charcoal-muted: #5c5a56;
 
   /* ── Typography ──────────────────────────────────────────────────────────────── */
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
@@ -203,4 +210,13 @@ body {
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: rgba(107, 101, 96, 0.8);
+}
+
+/* Lighter backgrounds need slightly bolder label contrast */
+.section-label-light {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(90, 88, 84, 0.72);
 }

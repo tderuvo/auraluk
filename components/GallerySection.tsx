@@ -126,7 +126,14 @@ function GalleryItem({ item, index }: GalleryItemProps) {
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="relative bg-void py-40 overflow-hidden">
+    <section id="gallery" className="relative bg-linen py-40 overflow-hidden">
+      {/* Transition from dark Cosmos Nights above */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-0 right-0 h-20 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, #0e1018 0%, rgba(245,245,241,0) 100%)' }}
+      />
+
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -136,10 +143,10 @@ export default function GallerySection() {
           transition={{ duration: 1.5, ease }}
           className="mb-18"
         >
-          <span className="section-label block mb-5">Through the Lens</span>
+          <span className="section-label-warm block mb-5">Through the Lens</span>
           <h2
-            className="font-serif font-light text-ghost"
-            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', letterSpacing: '0.04em' }}
+            className="font-serif font-light"
+            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', letterSpacing: '0.04em', color: '#1c1c1a' }}
           >
             Gallery
           </h2>
@@ -160,7 +167,7 @@ export default function GallerySection() {
           transition={{ duration: 1.2, delay: 0.4 }}
           className="text-center mt-18"
         >
-          <p className="font-serif font-light italic text-silver-dim" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}>
+          <p className="font-serif font-light italic" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)', color: '#5c5a56' }}>
             Every image captured on-site. No filters. Only the sky as it truly is.
           </p>
         </motion.div>

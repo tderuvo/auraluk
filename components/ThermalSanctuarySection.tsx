@@ -4,8 +4,9 @@ import { motion } from 'framer-motion'
 const ease = [0.25, 1, 0.35, 1] as const
 
 // ─── Ritual data ──────────────────────────────────────────────────────────
-// To attach a real image to any panel, add imageSrc + imageAlt and replace
-// the gradient div with a CinematicImage (same pattern as ExperienceSection).
+// Panels stay dark against the light ash background — editorial contrast.
+// To attach a real image, add imageSrc + imageAlt and swap the gradient
+// div for a CinematicImage (same pattern as ExperienceSection).
 
 const rituals = [
   {
@@ -36,30 +37,18 @@ const rituals = [
 
 export default function ThermalSanctuarySection() {
   return (
-    <section className="relative bg-void py-44 overflow-hidden">
+    <section className="relative bg-ash-light py-44 overflow-hidden">
 
-      {/* ── Warm-stone → void transition ────────────────────────────────
-           Mirrors the dark→warm gradient at top of RetreatSection but
-           in reverse, returning the palette to deep dark.              */}
+      {/* Very subtle top shadow — marks the visual break from warm-stone Retreat */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, #ece9e2 0%, rgba(3,5,8,0) 100%)' }}
-      />
-
-      {/* ── Subtle ember presence — firelight from the left ─────────── */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 left-0 w-2/5 h-2/5 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 70% at 0% 100%, rgba(180,70,20,0.05) 0%, transparent 70%)',
-        }}
+        className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+        style={{ background: 'rgba(28, 28, 26, 0.07)' }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6">
 
-        {/* ── Section header ──────────────────────────────────────────── */}
+        {/* ── Section header — dark charcoal on ash ───────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,16 +56,16 @@ export default function ThermalSanctuarySection() {
           transition={{ duration: 1.5, ease }}
           className="max-w-2xl mb-20"
         >
-          <span className="section-label block mb-5">The Thermal Sanctuary</span>
+          <span className="section-label-light block mb-5">The Thermal Sanctuary</span>
           <h2
-            className="font-serif font-light text-ghost"
-            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', letterSpacing: '0.04em' }}
+            className="font-serif font-light"
+            style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5rem)', letterSpacing: '0.04em', color: '#1c1c1a' }}
           >
             Water. Cedar. Cold.
           </h2>
           <p
-            className="font-sans text-silver-dim mt-6 max-w-lg"
-            style={{ lineHeight: '1.85', fontSize: 'clamp(0.85rem, 1.4vw, 1rem)' }}
+            className="font-sans mt-6 max-w-lg"
+            style={{ lineHeight: '1.85', fontSize: 'clamp(0.85rem, 1.4vw, 1rem)', color: '#5c5a56' }}
           >
             The ritual begins in the body. Before the sky opens, AURALUK draws you inward —
             through heat and cold, steam and silence, until only stillness remains.
@@ -84,7 +73,9 @@ export default function ThermalSanctuarySection() {
           </p>
         </motion.div>
 
-        {/* ── Three ritual panels ─────────────────────────────────────── */}
+        {/* ── Three ritual panels — dark against pale ash ──────────────── */}
+        {/* The dark panels create editorial contrast — like photographs     */}
+        {/* pinned to a gallery wall.                                        */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {rituals.map((r, i) => (
             <motion.div
@@ -93,24 +84,22 @@ export default function ThermalSanctuarySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 1.7, delay: i * 0.14, ease }}
-              className="relative overflow-hidden group cursor-default aspect-2/3"
+              className="relative overflow-hidden group cursor-default aspect-2/3 shadow-[0_16px_56px_rgba(0,0,0,0.2)]"
             >
-              {/* Atmospheric gradient background */}
+              {/* Atmospheric gradient */}
               <div
                 className="absolute inset-0 transition-transform duration-[1400ms] group-hover:scale-[1.02]"
                 style={{ background: r.gradient }}
               />
 
-              {/* Steam/element hint — faint colour at top of panel */}
+              {/* Steam hint at top */}
               <div
                 aria-hidden="true"
                 className="absolute top-0 left-0 right-0 h-28 pointer-events-none"
-                style={{
-                  background: `linear-gradient(to bottom, ${r.steamColor} 0%, transparent 100%)`,
-                }}
+                style={{ background: `linear-gradient(to bottom, ${r.steamColor} 0%, transparent 100%)` }}
               />
 
-              {/* Vignette edges */}
+              {/* Vignette */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 pointer-events-none"
@@ -120,7 +109,7 @@ export default function ThermalSanctuarySection() {
                 }}
               />
 
-              {/* Bottom read-area gradient */}
+              {/* Bottom text area */}
               <div
                 aria-hidden="true"
                 className="absolute bottom-0 left-0 right-0 h-3/5 pointer-events-none"
@@ -130,7 +119,7 @@ export default function ThermalSanctuarySection() {
                 }}
               />
 
-              {/* Text overlay */}
+              {/* Text overlay — stays white-on-dark inside each panel */}
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <span className="section-label opacity-35 block mb-4">
                   {r.num} — {r.element}
@@ -141,10 +130,7 @@ export default function ThermalSanctuarySection() {
                 >
                   {r.title}
                 </h3>
-                <p
-                  className="font-sans text-silver-dim text-sm"
-                  style={{ lineHeight: '1.82' }}
-                >
+                <p className="font-sans text-silver-dim text-sm" style={{ lineHeight: '1.82' }}>
                   {r.copy}
                 </p>
               </div>
@@ -152,7 +138,7 @@ export default function ThermalSanctuarySection() {
           ))}
         </div>
 
-        {/* ── Closing pull quote ───────────────────────────────────────── */}
+        {/* ── Closing pull quote — dark muted on light background ──────── */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -165,7 +151,7 @@ export default function ThermalSanctuarySection() {
             style={{
               fontSize: 'clamp(1.1rem, 2.6vw, 2rem)',
               letterSpacing: '0.02em',
-              color: 'rgba(196, 208, 224, 0.42)',
+              color: 'rgba(44, 40, 34, 0.42)',
             }}
           >
             The ritual begins long before the stars appear.

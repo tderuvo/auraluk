@@ -2,32 +2,31 @@
 import { motion } from 'framer-motion'
 
 // ─── Silence Before Dawn ──────────────────────────────────────────────────
-// An editorial pause between the body rituals and the sky.
-// Minimal copy. Heavy whitespace. No CTAs.
-// The feeling: turning a page and finding a single sentence.
+// An editorial pause on pale linen — the Kinfolk / Muji page-break moment.
+// One sentence. A timestamp. Heavy whitespace. Nothing else.
 
 export default function SilenceSection() {
   return (
     <section
-      className="relative bg-void overflow-hidden"
+      className="relative bg-linen overflow-hidden"
       style={{
         paddingTop: 'clamp(7rem, 14vw, 14rem)',
         paddingBottom: 'clamp(7rem, 14vw, 14rem)',
       }}
     >
-      {/* Very faint pre-dawn radial — just enough to separate from pure black */}
+      {/* Barely visible atmospheric texture — warm linen diffusion */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(8, 10, 20, 0.7) 0%, transparent 70%)',
+            'radial-gradient(ellipse 80% 50% at 50% 50%, rgba(232,229,222,0.5) 0%, transparent 70%)',
         }}
       />
 
       <div className="relative text-center max-w-2xl mx-auto px-6">
 
-        {/* The single sentence */}
+        {/* The single sentence — dark on pale */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -37,14 +36,14 @@ export default function SilenceSection() {
           style={{
             fontSize: 'clamp(1.6rem, 3.8vw, 3.2rem)',
             letterSpacing: '0.02em',
-            color: 'rgba(196, 208, 224, 0.44)',
+            color: 'rgba(28, 26, 24, 0.42)',
             lineHeight: 1.35,
           }}
         >
           Silence arrives with the cold.
         </motion.p>
 
-        {/* Timestamp — grounding the poetic in the specific */}
+        {/* Timestamp */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -55,7 +54,7 @@ export default function SilenceSection() {
             fontSize: '0.58rem',
             letterSpacing: '0.4em',
             textTransform: 'uppercase',
-            color: 'rgba(120, 136, 168, 0.35)',
+            color: 'rgba(60, 58, 54, 0.32)',
             fontFamily: 'var(--font-inter), system-ui, sans-serif',
           }}
         >
