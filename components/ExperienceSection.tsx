@@ -60,6 +60,12 @@ const experiences: Experience[] = [
     title: 'Private Chalet\nExperiences',
     copy: 'Each of our four suites was designed around a single idea: the sky is the view. Floor-to-ceiling north-facing windows frame your own slice of the cosmos. A telescope waits on your private observation terrace.',
     gradient: 'linear-gradient(135deg, #1a1208 0%, #2a1c0a 40%, #1e1406 70%, #140e04 100%)',
+    // ── Image asset ──────────────────────────────────────────────────────
+    // Drop the file at: public/images/private_chalet_experiences.png
+    imageSrc: '/images/private_chalet_experiences.png',
+    imageAlt: 'Luxury private chalet suite with personal observatory loft at Auraluk',
+    // Slight upward bias keeps the glass observatory loft and roofline in frame
+    imagePosition: 'center 35%',
   },
   {
     id: '05',
