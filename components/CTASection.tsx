@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
-const ease = [0.16, 1, 0.3, 1] as const
+const ease = [0.25, 1, 0.35, 1] as const
 
 function CTAStarfield() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -63,7 +63,7 @@ export default function CTASection() {
       {/* Aurora gradients */}
       <div
         className="absolute inset-0 pointer-events-none aurora-layer"
-        style={{ opacity: 0.9 }}
+        style={{ opacity: 0.4 }}
       />
 
       {/* Vignette */}
@@ -94,7 +94,7 @@ export default function CTASection() {
           {[1.5, 1, 2, 1, 1.5].map((size, i) => (
             <span
               key={i}
-              className="block rounded-full bg-aurora animate-glow-pulse"
+              className="block rounded-full bg-silver/30"
               style={{ width: `${size * 4}px`, height: `${size * 4}px`, animationDelay: `${i * 0.3}s` }}
             />
           ))}
@@ -102,10 +102,10 @@ export default function CTASection() {
 
         {/* Main headline */}
         <motion.h2
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1.6, delay: 0.2, ease }}
+          transition={{ duration: 1.8, delay: 0.2, ease }}
           className="font-serif font-light text-ghost"
           style={{
             fontSize: 'clamp(3.5rem, 10vw, 9rem)',
@@ -124,7 +124,7 @@ export default function CTASection() {
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, delay: 0.6, ease }}
-          className="flex items-center justify-center gap-4 my-10"
+          className="flex items-center justify-center gap-4 my-14"
         >
           <span className="block h-px bg-gradient-to-r from-transparent via-aurora/50 to-transparent w-40" />
           <span className="block w-1.5 h-1.5 rounded-full bg-aurora" />
@@ -150,7 +150,7 @@ export default function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 1.2, delay: 0.8, ease }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16"
         >
           <a
             href="#cosmos-nights"
@@ -158,7 +158,7 @@ export default function CTASection() {
               e.preventDefault()
               document.querySelector('#cosmos-nights')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            className="border border-aurora/40 bg-aurora/10 px-10 py-4 section-label text-aurora hover:bg-aurora/20 hover:border-aurora/70 transition-all duration-600 animate-glow-pulse w-full sm:w-auto text-center"
+            className="border border-aurora/30 bg-aurora/8 px-10 py-4 section-label text-aurora hover:bg-aurora/16 hover:border-aurora/55 transition-all duration-700 w-full sm:w-auto text-center"
           >
             Plan Your Escape
           </a>

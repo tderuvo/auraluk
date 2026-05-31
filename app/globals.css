@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors */
+  /* ── Dark palette ────────────────────────────────────────────────────── */
   --color-void: #030508;
   --color-night: #070a1e;
   --color-deep-space: #0d1535;
@@ -15,14 +15,21 @@
   --color-silver-dim: #7888a8;
   --color-ghost: #eef2f7;
 
-  /* Typography */
+  /* ── Warm editorial palette — light section backgrounds ─────────────── */
+  --color-warm-stone: #ece9e2;
+  --color-warm-linen: #f5f3ee;
+  --color-warm-text: #2c2822;
+  --color-warm-text-dim: #6b6560;
+  --color-warm-text-muted: #9e9893;
+
+  /* ── Typography ──────────────────────────────────────────────────────── */
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --font-sans: var(--font-inter), 'Inter', system-ui, sans-serif;
 
-  /* Custom Animations */
-  --animate-aurora-shift: aurora-shift 22s ease-in-out infinite alternate;
+  /* ── Animations — slowed for calm, architectural pacing ─────────────── */
+  --animate-aurora-shift: aurora-shift 30s ease-in-out infinite alternate;
   --animate-fog-drift: fog-drift 45s ease-in-out infinite;
-  --animate-glow-pulse: glow-pulse 3.5s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 5s ease-in-out infinite;
   --animate-float: float 8s ease-in-out infinite;
   --animate-scroll-hint: scroll-hint 2.5s ease-in-out infinite;
 }
@@ -45,14 +52,15 @@
   100% { transform: translateX(-8%) scaleX(1);    opacity: 0.22; }
 }
 
+/* Reduced intensity — calmer presence, 5s cycle */
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 18px rgba(62, 207, 176, 0.22),
-                0 0 36px rgba(62, 207, 176, 0.08);
+    box-shadow: 0 0 10px rgba(62, 207, 176, 0.10),
+                0 0 20px rgba(62, 207, 176, 0.04);
   }
   50% {
-    box-shadow: 0 0 28px rgba(62, 207, 176, 0.42),
-                0 0 56px rgba(62, 207, 176, 0.18);
+    box-shadow: 0 0 16px rgba(62, 207, 176, 0.18),
+                0 0 32px rgba(62, 207, 176, 0.07);
   }
 }
 
@@ -85,6 +93,7 @@ body {
   color: #c4d0e0;
   overflow-x: hidden;
   font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  line-height: 1.7;
 }
 
 /* ===================== SCROLLBAR ===================== */
@@ -97,11 +106,11 @@ body {
 /* ===================== SELECTION ===================== */
 
 ::selection {
-  background-color: rgba(62, 207, 176, 0.18);
+  background-color: rgba(62, 207, 176, 0.15);
   color: #eef2f7;
 }
 
-/* ===================== REUSABLE CLASSES ===================== */
+/* ===================== DARK GLASS — observatory / cosmos sections ====== */
 
 .text-gradient-aurora {
   background: linear-gradient(135deg, #3ecfb0 0%, #2ab4e8 50%, #9d85f0 100%);
@@ -125,26 +134,28 @@ body {
 }
 
 .glass-card {
-  background: rgba(13, 21, 53, 0.45);
+  background: rgba(13, 21, 53, 0.42);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(62, 207, 176, 0.08);
-  transition: border-color 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+  border: 1px solid rgba(62, 207, 176, 0.07);
+  transition: border-color 0.6s ease, box-shadow 0.6s ease, background 0.6s ease;
 }
 
+/* Reduced glow — more restrained hover state */
 .glass-card:hover {
-  background: rgba(13, 21, 53, 0.65);
-  border-color: rgba(62, 207, 176, 0.25);
-  box-shadow: 0 0 40px rgba(62, 207, 176, 0.08), inset 0 0 40px rgba(62, 207, 176, 0.03);
+  background: rgba(13, 21, 53, 0.58);
+  border-color: rgba(62, 207, 176, 0.16);
+  box-shadow: 0 0 24px rgba(62, 207, 176, 0.05);
 }
 
+/* Aurora layer — slowed to 30s for calmer atmospheric drift */
 .aurora-layer {
   background:
     radial-gradient(ellipse 100% 55% at 15% 40%, rgba(62, 207, 176, 0.1) 0%, transparent 70%),
     radial-gradient(ellipse 80% 45% at 85% 30%, rgba(42, 180, 232, 0.08) 0%, transparent 65%),
     radial-gradient(ellipse 70% 60% at 55% 85%, rgba(157, 133, 240, 0.06) 0%, transparent 70%);
   background-size: 200% 200%;
-  animation: aurora-shift 22s ease-in-out infinite alternate;
+  animation: aurora-shift 30s ease-in-out infinite alternate;
 }
 
 .section-label {
@@ -167,4 +178,30 @@ body {
   flex: 1;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(62, 207, 176, 0.4), transparent);
+}
+
+/* ===================== WARM EDITORIAL — retreat / light sections ======= */
+
+/* Card for warm stone sections — cream glass on warm background */
+.card-warm {
+  background: rgba(252, 250, 246, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(44, 40, 34, 0.09);
+  transition: border-color 0.6s ease, box-shadow 0.6s ease, background 0.6s ease;
+}
+
+.card-warm:hover {
+  background: rgba(252, 250, 246, 0.88);
+  border-color: rgba(44, 40, 34, 0.14);
+  box-shadow: 0 6px 36px rgba(44, 40, 34, 0.07);
+}
+
+/* Section label for warm backgrounds — warm stone tone, no teal */
+.section-label-warm {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(107, 101, 96, 0.8);
 }

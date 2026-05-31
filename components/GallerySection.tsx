@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 
-const ease = [0.16, 1, 0.3, 1] as const
+const ease = [0.25, 1, 0.35, 1] as const
 
 const galleryItems = [
   {
@@ -70,15 +70,15 @@ interface GalleryItemProps {
 function GalleryItem({ item, index }: GalleryItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
+      initial={{ opacity: 0, scale: 0.98 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 1.2, delay: index * 0.07, ease }}
+      transition={{ duration: 1.4, delay: index * 0.06, ease }}
       className={`group relative overflow-hidden ${item.span} aspect-[4/3] cursor-pointer`}
     >
       {/* Gradient background */}
       <div
-        className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
+        className="absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03]"
         style={{ background: item.gradient }}
       />
 
@@ -126,15 +126,15 @@ function GalleryItem({ item, index }: GalleryItemProps) {
 
 export default function GallerySection() {
   return (
-    <section id="gallery" className="relative bg-void py-32 overflow-hidden">
+    <section id="gallery" className="relative bg-void py-40 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1.2, ease }}
-          className="mb-14"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1.5, ease }}
+          className="mb-18"
         >
           <span className="section-label block mb-5">Through the Lens</span>
           <h2
@@ -158,7 +158,7 @@ export default function GallerySection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="text-center mt-14"
+          className="text-center mt-18"
         >
           <p className="font-serif font-light italic text-silver-dim" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}>
             Every image captured on-site. No filters. Only the sky as it truly is.

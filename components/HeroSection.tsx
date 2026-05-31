@@ -85,7 +85,7 @@ export default function HeroSection() {
       {/* ── 3. Starfield — quieter over real photography ─────────────────
            Opacity reduced so stars read as atmospheric rather than
            as the dominant visual element.                             */}
-      <div aria-hidden="true" className="absolute inset-0 opacity-45 pointer-events-none">
+      <div aria-hidden="true" className="absolute inset-0 opacity-35 pointer-events-none">
         <StarfieldCanvas />
       </div>
 
@@ -140,8 +140,8 @@ export default function HeroSection() {
           transition={{ duration: 1.6, delay: 1.0, ease }}
           className="font-serif font-light text-ghost uppercase"
           style={{
-            fontSize: 'clamp(3.5rem, 12vw, 10rem)',
-            letterSpacing: '0.35em',
+            fontSize: 'clamp(3rem, 10vw, 8rem)',
+            letterSpacing: '0.38em',
             lineHeight: 1,
           }}
         >

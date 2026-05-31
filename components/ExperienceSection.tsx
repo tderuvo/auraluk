@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import CinematicImage from './CinematicImage'
 
-const ease = [0.16, 1, 0.3, 1] as const
+const ease = [0.25, 1, 0.35, 1] as const
 
 // ─── Experience data ───────────────────────────────────────────────────────
 // To attach a real PNG to any experience, set `imageSrc` + `imageAlt`.
@@ -137,10 +137,10 @@ function ExperienceBlock({ exp, index }: ExperienceBlockProps) {
        * decoration render exactly as before.
        */}
       <motion.div
-        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+        initial={{ opacity: 0, x: isEven ? -30 : 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1.4, ease }}
+        transition={{ duration: 1.6, ease }}
         className={[
           'relative aspect-[4/3] lg:aspect-auto lg:h-[480px] overflow-hidden',
           isEven ? '' : 'lg:col-start-2',
@@ -185,10 +185,10 @@ function ExperienceBlock({ exp, index }: ExperienceBlockProps) {
 
       {/* ── Text panel ──────────────────────────────────────────────── */}
       <motion.div
-        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
+        initial={{ opacity: 0, x: isEven ? 30 : -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1.4, delay: 0.15, ease }}
+        transition={{ duration: 1.6, delay: 0.15, ease }}
         className={`px-10 lg:px-16 py-14 lg:py-20 ${
           isEven ? '' : 'lg:col-start-1 lg:row-start-1'
         }`}
@@ -235,11 +235,11 @@ function ExperienceBlock({ exp, index }: ExperienceBlockProps) {
 function PullQuote({ text }: { text: string }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 1.4, ease }}
-      className="py-24 px-8 text-center max-w-3xl mx-auto"
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 1.6, ease }}
+      className="py-32 px-8 text-center max-w-3xl mx-auto"
     >
       <span className="block text-aurora/40 text-4xl mb-6 font-serif">"</span>
       <p
@@ -266,11 +266,11 @@ export default function ExperienceSection() {
 
       {/* Section header */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 22 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 1.2, ease }}
-        className="text-center pt-28 pb-20 px-6"
+        transition={{ duration: 1.5, ease }}
+        className="text-center pt-40 pb-28 px-6"
       >
         <span className="section-label block mb-5">The Full Spectrum</span>
         <h2
@@ -296,7 +296,7 @@ export default function ExperienceSection() {
         </div>
       ))}
 
-      <div className="h-20" />
+      <div className="h-32" />
     </section>
   )
 }

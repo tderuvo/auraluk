@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 
-const ease = [0.16, 1, 0.3, 1] as const
+const ease = [0.25, 1, 0.35, 1] as const
 
 const nights = [
   {
@@ -69,17 +69,17 @@ interface NightCardProps {
 function NightCard({ night, index }: NightCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 60 }}
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 1.2, delay: index * 0.1, ease }}
+      transition={{ duration: 1.5, delay: index * 0.09, ease }}
       className="group relative p-8 overflow-hidden cursor-default"
       style={{
         background: night.color,
         border: `1px solid ${night.border}`,
         transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
-      whileHover={{ scale: 1.015 }}
+      whileHover={{ scale: 1.008 }}
     >
       {/* Hover glow overlay */}
       <div
@@ -98,7 +98,7 @@ function NightCard({ night, index }: NightCardProps) {
         {/* Icon */}
         <div
           className="text-3xl mb-5"
-          style={{ filter: `drop-shadow(0 0 8px ${night.accent}40)` }}
+          style={{ filter: `drop-shadow(0 0 4px ${night.accent}30)` }}
         >
           {night.icon}
         </div>
@@ -136,7 +136,7 @@ function NightCard({ night, index }: NightCardProps) {
 
 export default function CosmosNightsSection() {
   return (
-    <section id="cosmos-nights" className="relative bg-night py-32 overflow-hidden">
+    <section id="cosmos-nights" className="relative bg-night py-44 overflow-hidden">
       {/* Background nebula hint */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -149,11 +149,11 @@ export default function CosmosNightsSection() {
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1.2, ease }}
-          className="text-center mb-16"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1.5, ease }}
+          className="text-center mb-22"
         >
           <span className="section-label block mb-5">Curated Sky Events</span>
           <h2
@@ -181,7 +181,7 @@ export default function CosmosNightsSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="text-center font-sans text-silver-dim text-xs mt-10 tracking-wide"
+          className="text-center font-sans text-silver-dim text-xs mt-14 tracking-wide"
           style={{ letterSpacing: '0.1em' }}
         >
           All Cosmos Nights are available as stand-alone bookings or as additions to an overnight stay.

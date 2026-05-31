@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 import CinematicImage from './CinematicImage'
 
-const ease = [0.16, 1, 0.3, 1] as const
+const ease = [0.25, 1, 0.35, 1] as const
 
 // ─── Observatory dome image ────────────────────────────────────────────────
 // Drop the file at:  public/images/auraluk-observatory-dome.png
@@ -63,7 +63,7 @@ const cassLines = 'M15,55 L30,35 L48,50 L65,28 L82,48'
 
 export default function ObservatorySection() {
   return (
-    <section id="observatory" className="relative bg-night overflow-hidden py-32">
+    <section id="observatory" className="relative bg-night overflow-hidden py-44">
       {/* Deep space gradient top */}
       <div
         className="absolute top-0 left-0 right-0 h-64 pointer-events-none"
@@ -83,11 +83,11 @@ export default function ObservatorySection() {
 
         {/* ── Section header ──────────────────────────────────────────── */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1.2, ease }}
-          className="mb-14"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 1.5, ease }}
+          className="mb-18"
         >
           <span className="section-label block mb-5">Instruments of Wonder</span>
           <h2
@@ -108,11 +108,11 @@ export default function ObservatorySection() {
          * defined inside CinematicImage via group-hover:* utilities.
          */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 1.4, ease }}
-          className="mb-20"
+          transition={{ duration: 1.6, ease }}
+          className="mb-24"
         >
           <div
             className={[
@@ -141,17 +141,17 @@ export default function ObservatorySection() {
         </motion.div>
 
         {/* ── Telescopes + constellation map ──────────────────────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
           {/* Telescope cards */}
           <div className="space-y-6">
             {telescopes.map((tel, i) => (
               <motion.div
                 key={tel.name}
-                initial={{ opacity: 0, x: -40 }}
+                initial={{ opacity: 0, x: -22 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 1.2, delay: i * 0.12, ease }}
+                transition={{ duration: 1.5, delay: i * 0.14, ease }}
                 className="glass-card p-8"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -174,10 +174,10 @@ export default function ObservatorySection() {
 
           {/* Constellation map panel */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 22 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1.4, ease }}
+            transition={{ duration: 1.6, ease }}
           >
             <div className="glass-card p-8 h-full">
               <span className="section-label block mb-4 opacity-60">Tonight's Sky · Sutton, QC</span>
@@ -317,7 +317,7 @@ export default function ObservatorySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1.2, delay: 0.3, ease }}
-          className="mt-20 glass-card p-10 text-center"
+          className="mt-24 glass-card p-12 text-center"
         >
           <p
             className="font-serif font-light italic text-silver mb-4"
